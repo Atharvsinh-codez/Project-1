@@ -8,10 +8,10 @@ interface ContactFormData {
   name: string;
   email: string;
   intent:
-    | "Investment Inquiry"
-    | "Creator Onboarding"
-    | "Technical Partnership"
-    | "General Support";
+  | "Investment Inquiry"
+  | "Creator Onboarding"
+  | "Technical Partnership"
+  | "General Support";
   message: string;
 }
 
@@ -57,7 +57,7 @@ const ContactPage: React.FC = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const recipient = "draviyaofficial@gmail.com";
+    const recipient = "at41rv@gmail.com";
     const subject = encodeURIComponent(
       `${formData.intent} from ${formData.name}`
     );
@@ -91,7 +91,7 @@ const ContactPage: React.FC = () => {
         </section>
 
         <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start mb-32">
-          {/* LEFT: Founder Access with LinkedIn Links */}
+          {/* LEFT: Short Intro */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -100,46 +100,21 @@ const ContactPage: React.FC = () => {
           >
             <div>
               <h2 className="text-sm font-mono uppercase tracking-[0.2em] text-zinc-400 mb-8 flex items-center gap-4">
-                <span className="w-8 h-[1px] bg-zinc-300"></span> The Founders
+                <span className="w-8 h-[1px] bg-zinc-300"></span> Contact Us
               </h2>
-              <div className="grid grid-cols-1 gap-8">
-                {founders.map((founder) => (
-                  <div
-                    key={founder.name}
-                    className="group border-b border-zinc-200 pb-4 flex justify-between items-end hover:border-[#FF2F00] transition-colors duration-300"
-                  >
-                    <div>
-                      <p className="text-2xl font-semibold tracking-tight">
-                        {founder.name}
-                      </p>
-                      <p className="text-zinc-500 font-mono text-[10px] uppercase tracking-widest mt-1">
-                        {founder.role}
-                      </p>
-                    </div>
-                    <a
-                      href={founder.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[10px] font-mono text-zinc-300 uppercase tracking-[0.2em] hover:text-[#FF2F00] transition-colors flex items-center gap-2"
-                    >
-                      Connect <span className="text-xs">↗</span>
-                    </a>
-                  </div>
-                ))}
-              </div>
+              <p className="text-xl leading-relaxed text-zinc-700 max-w-md">
+                We're always looking for new partners and creators. Reach out to us directly or use the form to get started.
+              </p>
             </div>
 
             <div className="space-y-8">
               <h2 className="text-sm font-mono uppercase tracking-[0.2em] text-zinc-400 mb-4">
-                Official Channels
+                Official Email
               </h2>
               <div className="space-y-4">
                 <div>
-                  <p className="text-[10px] font-mono text-zinc-400 uppercase mb-1">
-                    General & Partnerships
-                  </p>
                   <p className="text-xl font-medium underline underline-offset-4 decoration-zinc-300 hover:decoration-[#FF2F00] transition-all cursor-pointer">
-                    draviyaofficial@gmail.com
+                    at41rv@gmail.com
                   </p>
                 </div>
               </div>
@@ -251,7 +226,7 @@ const ContactPage: React.FC = () => {
             — DRAVIYA
           </p>
         </section>
-      </main>
+      </main >
       <Footer />
     </>
   );
