@@ -7,8 +7,7 @@ const HeroLogos = () => {
       <FloatingLogo
         src="/images/hero/Youtube.png"
         alt="Youtube logo"
-        className="absolute h-[120px]"
-        style={{ top: "18%", left: "12%" }}
+        className="absolute h-[60px] md:h-[120px] top-[15%] left-[5%] md:top-[18%] md:left-[12%]"
         animateY={28}
         animateX={10}
         rotate={10}
@@ -21,8 +20,7 @@ const HeroLogos = () => {
       <FloatingLogo
         src="/images/hero/Instagram.png"
         alt="Instagram logo"
-        className="absolute h-[100px]"
-        style={{ top: "8%", right: "14%" }}
+        className="absolute h-[50px] md:h-[100px] top-[10%] right-[5%] md:top-[8%] md:right-[14%]"
         animateY={32}
         animateX={-12}
         rotate={14}
@@ -35,8 +33,7 @@ const HeroLogos = () => {
       <FloatingLogo
         src="/images/hero/Spotify.png"
         alt="Spotify logo"
-        className="absolute h-[130px]"
-        style={{ top: "62%", left: "6%" }}
+        className="absolute h-[65px] md:h-[130px] top-[55%] left-[2%] md:top-[62%] md:left-[6%]"
         animateY={38}
         animateX={14}
         rotate={18}
@@ -49,8 +46,7 @@ const HeroLogos = () => {
       <FloatingLogo
         src="/images/hero/Twitch.png"
         alt="Twitch logo"
-        className="absolute h-[135px]"
-        style={{ top: "70%", right: "3%" }}
+        className="absolute h-[70px] md:h-[135px] top-[60%] right-[2%] md:top-[70%] md:right-[3%]"
         animateY={42}
         animateX={-16}
         rotate={20}

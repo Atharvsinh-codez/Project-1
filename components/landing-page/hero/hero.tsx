@@ -40,7 +40,7 @@ const Hero = () => {
       </div>
 
       {/* HERO CONTENT BELOW */}
-      <div className="relative z-10 flex flex-col items-center justify-center w-full pt-60 gap-40">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full pt-32 md:pt-60 gap-16 md:gap-40">
         <HeroText text="Creators Aren't Content, They're Assets" />
 
         {/* Dashboard Animation */}

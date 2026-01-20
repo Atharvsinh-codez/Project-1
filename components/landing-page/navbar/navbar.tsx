@@ -73,7 +73,7 @@ const Navbar = () => {
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-        className="border border-zinc-700 bg-black py-3 px-7 rounded-full flex justify-between gap-32 shadow-2xl shadow-zinc-800 origin-center"
+        className="border border-zinc-700 bg-black py-2 md:py-3 px-5 md:px-7 rounded-full flex justify-between w-[92%] md:w-auto md:gap-32 shadow-2xl shadow-zinc-800 origin-center"
       >
         <Logo />
 

@@ -35,7 +35,7 @@ const HeroText = ({ text }: HeroTextProps) => {
   return (
     <h1
       ref={heroTextRef}
-      className="text-6xl max-sm:px-5 sm:text-7xl lg:text-8xl max-w-4xl text-center font-medium flex flex-wrap justify-center content-center gap-x-3 gap-y-2"
+      className="text-4xl xs:text-5xl sm:text-7xl lg:text-8xl max-sm:px-2 max-w-4xl text-center font-bold flex flex-wrap justify-center content-center gap-x-2 sm:gap-x-3 gap-y-1 sm:gap-y-2"
     >
       {words.map((word, index) => (
         <motion.span
