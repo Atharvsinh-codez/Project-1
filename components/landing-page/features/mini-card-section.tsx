@@ -24,7 +24,7 @@ const MiniCardSection: React.FC = () => {
       />
 
       <FeatureMiniCard
-        images={["/images/logo/logo-icon.jpeg"]}
+        images={["/images/logo/logo-icon.png"]}
         rotation="rotate-1 sm:rotate-4"
         title="Build a flex-worthy portfolio powered by your favorite creators"
       />

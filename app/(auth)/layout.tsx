@@ -19,7 +19,7 @@ export default function AuthLayout({
       <div className="fixed top-0 w-full px-5 md:px-20 py-6 md:py-10 flex justify-between items-center z-20">
         <div className="flex gap-3 items-center">
           <img
-            src="/images/logo/logo-icon.jpeg"
+            src="/images/logo/logo-icon.png"
             alt="Logo"
             className="h-10 w-10 md:h-12 md:w-12 rounded-xl"
             onError={(e) =>

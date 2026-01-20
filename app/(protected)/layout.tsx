@@ -86,7 +86,7 @@ export default function ProtectedLayout({
           {/* Logo */}
           <div className="flex items-center gap-3 py-10 px-7">
             <img
-              src="/images/logo/logo-icon.jpeg"
+              src="/images/logo/logo-icon.png"
               alt="Logo"
               className="h-12 w-12 rounded-lg"
               onError={(e) =>
@@ -116,9 +116,8 @@ export default function ProtectedLayout({
                   onClick={() => setSidebarOpen(false)}
                 >
                   <div
-                    className={`w-2.5 mr-5 h-10 ${
-                      isActive ? "bg-[#F2723B]" : "bg-none"
-                    } rounded-r-2xl`}
+                    className={`w-2.5 mr-5 h-10 ${isActive ? "bg-[#F2723B]" : "bg-none"
+                      } rounded-r-2xl`}
                   ></div>
                   <item.icon
                     className={cn(
@@ -129,9 +128,8 @@ export default function ProtectedLayout({
                     )}
                   />
                   <div
-                    className={`text-xl ${
-                      isActive ? "text-zinc-800 font-semibold" : "text-zinc-400"
-                    }`}
+                    className={`text-xl ${isActive ? "text-zinc-800 font-semibold" : "text-zinc-400"
+                      }`}
                   >
                     {item.name}
                   </div>
@@ -154,9 +152,8 @@ export default function ProtectedLayout({
                   onClick={() => setSidebarOpen(false)}
                 >
                   <div
-                    className={`w-2.5 mr-5 h-10 ${
-                      isActive ? "bg-[#F2723B]" : "bg-none"
-                    } rounded-r-2xl`}
+                    className={`w-2.5 mr-5 h-10 ${isActive ? "bg-[#F2723B]" : "bg-none"
+                      } rounded-r-2xl`}
                   ></div>
                   <item.icon
                     className={cn(
@@ -167,9 +164,8 @@ export default function ProtectedLayout({
                     )}
                   />
                   <div
-                    className={`text-xl ${
-                      isActive ? "text-zinc-800 font-semibold" : "text-zinc-400"
-                    }`}
+                    className={`text-xl ${isActive ? "text-zinc-800 font-semibold" : "text-zinc-400"
+                      }`}
                   >
                     {item.name}
                   </div>
@@ -215,7 +211,7 @@ export default function ProtectedLayout({
           </button>
           <div className="flex items-center gap-3">
             <img
-              src="/images/logo/logo-icon.jpeg"
+              src="/images/logo/logo-icon.png"
               alt="Logo"
               className="h-6 w-6 rounded"
               onError={(e) =>
