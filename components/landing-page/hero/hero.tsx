@@ -21,9 +21,9 @@ const SOCIALS = [
 
 const Hero = () => {
   return (
-    <section className="relative h-fit w-dvw">
+    <section className="relative h-fit w-full">
       {/* HERO TOP - Background + Floating Logos */}
-      <div className="hero relative h-dvh w-dvw overflow-hidden">
+      <div className="hero relative h-dvh w-full overflow-hidden">
         {/* Background image */}
         <img
           className="masked-img"
