@@ -63,7 +63,7 @@ const Navbar = () => {
   }, [isMobileMenuOpen]);
 
   return (
-    <div className="mobile-menu-container fixed top-0 left-0 w-full h-[100px] flex items-center justify-center z-9999">
+    <div className="mobile-menu-container fixed top-0 left-0 w-full h-[100px] flex items-center justify-center z-50">
       {/* Animated Navbar Shell */}
       <motion.div
         initial={{ scaleX: 0, scaleY: 0, opacity: 0 }}
