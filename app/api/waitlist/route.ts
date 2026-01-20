@@ -40,31 +40,43 @@ export async function POST(request: NextRequest) {
     const { email } = requestSchema.parse(body);
     const normalizedEmail = email.toLowerCase().trim();
 
-    const otp = crypto.randomInt(100000, 999999).toString();
-    const otpExpiresAt = new Date(Date.now() + 10 * 60 * 1000); 
+    // Check if already exists and verified
+    const existing = await prisma.waitlist.findUnique({
+      where: { email: normalizedEmail },
+    });
 
+    if (existing?.verified) {
+      return NextResponse.json(
+        { message: "You're already on the waitlist!", alreadyVerified: true },
+        { status: 200 }
+      );
+    }
+
+    // Directly add to waitlist as verified (no OTP needed)
     await prisma.waitlist.upsert({
       where: { email: normalizedEmail },
       update: {
-        otp,
-        otpExpiresAt,
+        verified: true,
+        otp: null,
+        otpExpiresAt: null,
       },
       create: {
         email: normalizedEmail,
-        otp,
-        otpExpiresAt,
-        verified: false,
+        verified: true,
       },
     });
 
-    const emailResult = await sendOTP(normalizedEmail, otp);
-
-    if (!emailResult.success) {
-      return NextResponse.json({ error: "Failed to send verification email" }, { status: 500 });
+    // Also add to subscribers
+    try {
+      await prisma.subscriber.create({
+        data: { email: normalizedEmail },
+      });
+    } catch {
+      // Ignore if already subscribed
     }
 
     return NextResponse.json(
-      { message: "OTP sent to your email" },
+      { message: "Welcome to the waitlist!", verified: true },
       { status: 200 }
     );
 
@@ -72,6 +84,7 @@ export async function POST(request: NextRequest) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({ error: error.issues[0]?.message }, { status: 400 });
     }
+    console.error("Waitlist error:", error);
     return NextResponse.json({ error: "Failed to process request" }, { status: 500 });
   }
 }
@@ -119,7 +132,7 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ error: error.issues[0]?.message }, { status: 400 });
     }
     if (error && typeof error === 'object' && 'code' in error && error.code === 'P2002') {
-       return NextResponse.json({ message: "Email already verified!" }, { status: 200 });
+      return NextResponse.json({ message: "Email already verified!" }, { status: 200 });
     }
 
     return NextResponse.json({ error: "Verification failed" }, { status: 500 });

@@ -34,7 +34,7 @@ function AnimatedCounter({ value }: { value: number }) {
       const updateTimer = setTimeout(() => {
         setDisplayValue(value);
         setIsAnimating(false);
-      }, 600); 
+      }, 600);
 
       return () => {
         clearTimeout(timer);
@@ -46,11 +46,10 @@ function AnimatedCounter({ value }: { value: number }) {
   return (
     <div className="relative overflow-hidden h-10 flex items-center justify-center">
       <span
-        className={`text-3xl font-extrabold bg-linear-to-r from-[#FF2F00] via-[#F2723B] to-[#FF6B35] bg-clip-text text-transparent transition-all duration-600 ease-out ${
-          isAnimating
+        className={`text-3xl font-extrabold bg-linear-to-r from-[#FF2F00] via-[#F2723B] to-[#FF6B35] bg-clip-text text-transparent transition-all duration-600 ease-out ${isAnimating
             ? "-translate-y-full opacity-0"
             : "translate-y-0 opacity-100"
-        }`}
+          }`}
       >
         {displayValue.toLocaleString()}
       </span>
@@ -70,7 +69,7 @@ export default function WaitlistForm({
 }: WaitlistFormProps) {
   const [count, setCount] = useState<number | null>(null);
   const [isLoadingCount, setIsLoadingCount] = useState(showCounter);
-  
+
   // OTP Logic States
   const [step, setStep] = useState<"email" | "otp">("email");
   const [isLoading, setIsLoading] = useState(false);
@@ -105,7 +104,7 @@ export default function WaitlistForm({
     fetchCount();
   }, [showCounter]);
 
-  // Step 1: Request OTP
+  // Submit email directly (no OTP needed)
   const onRequestOtp = async (data: WaitlistFormData) => {
     setIsLoading(true);
     try {
@@ -122,11 +121,27 @@ export default function WaitlistForm({
         return;
       }
 
-      toast.success("Code sent! Check your email.");
-      setStep("otp");
+      // Success - user is now on the waitlist
+      if (result.alreadyVerified) {
+        toast.info("You're already on the waitlist!");
+      } else {
+        toast.success("Welcome to the waitlist! 🎉");
+      }
+
+      reset({ email: "" });
+      onSuccess?.();
+
+      // Update count
+      if (showCounter) {
+        const countResponse = await fetch("/api/waitlist");
+        if (countResponse.ok) {
+          const countData = await countResponse.json();
+          setCount(countData.count);
+        }
+      }
     } catch (error) {
-      console.error("Error requesting OTP:", error);
-      toast.error("Failed to send code. Please try again.");
+      console.error("Error joining waitlist:", error);
+      toast.error("Failed to join. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -160,7 +175,7 @@ export default function WaitlistForm({
       setOtp("");
       reset({ email: "" }); // Explicitly reset email to empty
       setStep("email"); // Reset to email step
-      
+
       toast.success("Welcome to the waitlist!");
       onSuccess?.();
 
@@ -187,7 +202,7 @@ export default function WaitlistForm({
     return (
       <div className="flex flex-col items-center gap-6 w-full">
         <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto w-full animate-fade-in relative">
-          
+
           {/* STEP 1: EMAIL FORM */}
           {step === "email" ? (
             <form
@@ -202,9 +217,8 @@ export default function WaitlistForm({
                   placeholder="Enter your email"
                   style={{ scrollMarginTop: "40vh" }}
                   {...register("email")}
-                  className={`${commonInputStyles} ${
-                    errors.email ? "border-red-500 focus-visible:ring-red-500" : ""
-                  }`}
+                  className={`${commonInputStyles} ${errors.email ? "border-red-500 focus-visible:ring-red-500" : ""
+                    }`}
                   disabled={isLoading}
                 />
                 {errors.email && (
@@ -226,9 +240,9 @@ export default function WaitlistForm({
             </form>
           ) : (
             /* STEP 2: OTP FORM */
-            <form 
+            <form
               key="otp-form"
-              onSubmit={onVerifyOtp} 
+              onSubmit={onVerifyOtp}
               className="flex flex-col sm:flex-row gap-4 w-full animate-in fade-in slide-in-from-bottom-4 duration-500"
             >
               <div className="flex-1 group relative">
