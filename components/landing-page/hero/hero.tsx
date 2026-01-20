@@ -41,7 +41,7 @@ const Hero = () => {
 
       {/* HERO CONTENT BELOW */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full pt-60 gap-40">
-        <HeroText text="Meet the World's First Platform for Creator Assets" />
+        <HeroText text="Creators Aren't Content, They're Assets" />
 
         {/* Dashboard Animation */}
         <motion.div

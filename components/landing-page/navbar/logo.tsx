@@ -10,17 +10,9 @@ const Logo = () => (
   >
     <Link href="/">
       <img
-        src="/images/logo/logo-icon.png"
-        alt="Project-1 Logo Icon"
-        className="h-8 rounded-md"
-        loading="eager"
-      />
-    </Link>
-    <Link href="/">
-      <img
-        src="/images/logo/logo-name-light.png"
-        alt="Project-1 Logo Text"
-        className="h-6"
+        src="/images/logo/logo-full.png"
+        alt="Project-1 Logo"
+        className="h-10"
         loading="eager"
       />
     </Link>

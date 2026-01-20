@@ -47,36 +47,29 @@ export default function AboutPage() {
                     A Note From
                   </p>
                   <h3 className="font-serif italic text-2xl text-zinc-800">
-                    The Co-founders
+                    The Founder
                   </h3>
                 </div>
                 <div className="text-right font-mono text-[10px] uppercase tracking-widest text-zinc-300">
-                  Ref: DRA-2025
+                  <div>Ref: DRA-2025</div>
+                  <div>Date: 20 January 2026</div>
                 </div>
               </div>
 
               <div className="space-y-6 text-lg leading-relaxed text-zinc-700 font-light">
                 <p>
-                  Before we were founders, we were just students—
-                  <span className="text-zinc-900 font-medium">
-                    Agnish, Yash, and Aditya
-                  </span>
-                  —who grew up watching our favorite creators build worlds from
+                  Before I was a founder, I was just a student—
+                  <span className="text-zinc-900 font-medium">Atharv</span>
+                  —who grew up watching my favorite creators build worlds from
                   nothing.
                 </p>
-                <p>
-                  During the lockdown, creators weren’t just entertainment; they
-                  became our educators and companions. But as life got busy
-                  again, supporting them started to feel like a "guilty
-                  pleasure."
-                </p>
                 <p className="italic font-serif text-xl text-zinc-900 border-l-2 border-[#FF2F00] pl-6 py-2 my-8">
-                  "Why does supporting a creator’s growth feel like wasted time,
+                  "Why does supporting a creator's growth feel like wasted time,
                   when we believe in their future as much as any startup?"
                 </p>
                 <p>
                   Fans invest massive emotional capital with no financial
-                  bridge. Creators rely on unpredictable ads. We built{" "}
+                  bridge. Creators rely on unpredictable ads. I built{" "}
                   <span className="text-[#FF2F00] font-medium">Project-1</span> to
                   turn that emotional belief into a structured, transparent
                   asset class.
@@ -84,17 +77,13 @@ export default function AboutPage() {
               </div>
 
               <div className="mt-14 pt-10 border-t border-zinc-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                <div className="flex gap-4">
-                  {["Agnish", "Yash", "Aditya"].map((name) => (
-                    <div key={name} className="flex flex-col">
-                      <span className="font-mono text-[10px] uppercase text-[#FF2F00]">
-                        {name}
-                      </span>
-                      <span className="text-[9px] text-zinc-400 uppercase tracking-tighter italic">
-                        Co-founder
-                      </span>
-                    </div>
-                  ))}
+                <div className="flex flex-col">
+                  <span className="font-mono text-[10px] uppercase text-[#FF2F00]">
+                    Atharv
+                  </span>
+                  <span className="text-[9px] text-zinc-400 uppercase tracking-tighter italic">
+                    Founder
+                  </span>
                 </div>
                 <div className="font-serif italic text-zinc-400 text-sm">
                   Onwards.
