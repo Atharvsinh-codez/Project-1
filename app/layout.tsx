@@ -66,9 +66,9 @@ export const metadata: Metadata = {
     creator: "@athrix_codes",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
   },
   alternates: {
     canonical: "/",
