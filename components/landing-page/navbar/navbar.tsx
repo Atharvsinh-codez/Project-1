@@ -7,6 +7,7 @@ import BurgerButton from "./burger-button";
 import NavLinks from "./nav-links";
 import CTAButton from "./cta-button";
 import MobileMenu from "./mobile-menu";
+import GitHubStars from "./github-stars";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -89,10 +90,11 @@ const Navbar = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: isVisible ? 1 : 0 }}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="hidden md:flex gap-10"
+          className="hidden md:flex gap-6 items-center"
         >
           <NavLinks />
           <CTAButton />
+          <GitHubStars />
         </motion.div>
       </motion.div>
 
